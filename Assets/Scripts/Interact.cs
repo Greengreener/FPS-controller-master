@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    Gun _gunScript;
+    Gun_Main _gunScript;
     Camera _mainCamera;
 
     float _range = 10f;
     void Start()
     {
         _mainCamera = Camera.main;
-        _gunScript = gameObject.GetComponentInChildren<Gun>();
+        _gunScript = gameObject.GetComponentInChildren<Gun_Main>();
     }
     private void Update()
     {

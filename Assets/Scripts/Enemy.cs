@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float health;
     public GameObject[] bodyParts = new GameObject[7];

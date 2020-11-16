@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Gun : MonoBehaviour
+public class Gun_Main : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
@@ -88,10 +88,10 @@ public class Gun : MonoBehaviour
         clip--;
         UIUpdate();
         RaycastHit hit;
-        Target target;
+        Enemy target;
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            target = hit.transform.GetComponentInParent<Target>();
+            target = hit.transform.GetComponentInParent<Enemy>();
 
             if(target == null)
             {
