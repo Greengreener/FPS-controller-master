@@ -5,10 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TeamvsTeamGreybox.unity
     guid: c2dc7b346f3fa274aadcc0c02cfedd96
+  - enabled: 1
+    path: Assets/Scenes/Mirror/Offline.unity
+    guid: 527aae2b7c8e44146ae0babd4b3cf67c
+  - enabled: 1
+    path: Assets/Scenes/Mirror/Lobby.unity
+    guid: bb93e6a85889daf4a8357381aa7a9d93
+  - enabled: 1
+    path: Assets/Scenes/Gameplay01.unity
+    guid: 5fed7ccafa0b19340a81416307b2a722
+  - enabled: 1
+    path: Assets/Scenes/Mirror/Online.unity
+    guid: f1c69ca400cf9d94ead86ddaba66a4d0
   m_configObjects: {}

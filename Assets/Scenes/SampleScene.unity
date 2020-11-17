@@ -1280,6 +1280,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1154449153483058743, guid: 636c565c699113545854ab31e83404fa,
+        type: 3}
+      propertyPath: sceneId
+      value: 738960445
+      objectReference: {fileID: 0}
     - target: {fileID: 5048358221262346932, guid: 636c565c699113545854ab31e83404fa,
         type: 3}
       propertyPath: flagIcon
