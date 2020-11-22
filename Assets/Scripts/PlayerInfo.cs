@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class PlayerInfo : MonoBehaviour
 {
     GameObject _flagSystemHolder;
+    [SerializeField]
     FlagSystem _flagSystem;
-
+    [SerializeField]
     GameObject playerFlag;
-    public bool hasFlag;
-    public bool RedTeam, BlueTeam;
-    public Image flagIcon;
-    private void Start()
+    [SerializeField]
+    bool hasFlag;
+    [SerializeField]
+    bool RedTeam, BlueTeam;
+    [SerializeField]
+    Image flagIcon;
+    void Start()
     {
         _flagSystemHolder = GameObject.FindGameObjectWithTag("Flag");
         _flagSystem = _flagSystemHolder.GetComponent<FlagSystem>();
-        playerFlag = GameObject.Find("PlayerFlag");
         playerFlag.gameObject.SetActive(false);
         hasFlag = false;
         flagIcon.gameObject.SetActive(false);

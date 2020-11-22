@@ -20,6 +20,7 @@
     "editor.acceptSuggestionOnEnter": "smart",
     //*Synthwave '84 Theme Settings
     "synthwave84.brightness": 0.1,
+    "synthwave84.disableGlow": false,
     //*Misc
     "editor.detectIndentation": true,
     "editor.codeLens": true,

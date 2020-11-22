@@ -36,9 +36,9 @@ public class FlagSystem : MonoBehaviour
     {
         Debug.Log("FlagReset");
         _flagMesh.SetActive(true);
-        _redTeamPoints = RedTeamPoints;
-        _blueTeamPoints = BlueTeamPoints;
-        redTeamPoints.text = _redTeamPoints + " :   RED TEAM";
-        blueTeamPoints.text = _blueTeamPoints + " : BLUE TEAM";
+        // _redTeamPoints = RedTeamPoints;
+        // _blueTeamPoints = BlueTeamPoints;
+        // redTeamPoints.text = _redTeamPoints + " :   RED TEAM";
+        // blueTeamPoints.text = _blueTeamPoints + " : BLUE TEAM";
     }
 }

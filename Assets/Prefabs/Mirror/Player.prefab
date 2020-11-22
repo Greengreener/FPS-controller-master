@@ -262,6 +262,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &699960803764568703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1923389131, guid: aa10bba797bbd154e9703b381a095cf4,
+    type: 3}
+  m_PrefabInstance: {fileID: 699960801929270452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8707589428379172461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -269,11 +281,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7078045969150382258}
     m_Modifications:
+    - target: {fileID: 202884079419630961, guid: 636c565c699113545854ab31e83404fa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202884079419630961, guid: 636c565c699113545854ab31e83404fa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1154449153483058743, guid: 636c565c699113545854ab31e83404fa,
         type: 3}
       propertyPath: sceneId
       value: 1731624950
       objectReference: {fileID: 0}
+    - target: {fileID: 5048358221262346932, guid: 636c565c699113545854ab31e83404fa,
+        type: 3}
+      propertyPath: flagIcon
+      value: 
+      objectReference: {fileID: 699960803764568703}
     - target: {fileID: 6877189041149591765, guid: 636c565c699113545854ab31e83404fa,
         type: 3}
       propertyPath: clipText
