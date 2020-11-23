@@ -73,7 +73,7 @@ public class Gun_Main : MonoBehaviour
             animator.SetBool("Shooting", true);
             Shoot();
         }
-        if(Input.GetButton("Fire1") && clip == 0)
+        if (Input.GetButton("Fire1") && clip == 0)
         {
             animator.SetBool("Shooting", false);
             Debug.Log("*click click click*");
@@ -83,6 +83,8 @@ public class Gun_Main : MonoBehaviour
             animator.SetBool("Shooting", false);
         }
     }
+
+
     void Shoot()
     {
         clip--;
@@ -93,7 +95,7 @@ public class Gun_Main : MonoBehaviour
         {
             target = hit.transform.GetComponentInParent<Enemy>();
 
-            if(target == null)
+            if (target == null)
             {
                 return;
             }
@@ -105,8 +107,8 @@ public class Gun_Main : MonoBehaviour
             }
             if (target.health <= 0)
             {
-                Rigidbody rb =  hit.rigidbody.GetComponent<Rigidbody>();
-                rb.AddForceAtPosition((hit.point - fpsCamera.transform.position) * damage,hit.transform.position);
+                Rigidbody rb = hit.rigidbody.GetComponent<Rigidbody>();
+                rb.AddForceAtPosition((hit.point - fpsCamera.transform.position) * damage, hit.transform.position);
             }
             else
             {

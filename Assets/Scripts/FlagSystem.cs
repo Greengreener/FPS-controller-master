@@ -12,13 +12,11 @@ public class FlagSystem : MonoBehaviour
     public Text redTeamPoints;
     public Text blueTeamPoints;
 
-
     public int RedTeamPoints { get; set; }
     public int _redTeamPoints;
     public int BlueTeamPoints { get; set; }
     int _blueTeamPoints;
 
-    // Start is called before the first frame update
     void Start()
     {
         orignalLocation = transform.position;
