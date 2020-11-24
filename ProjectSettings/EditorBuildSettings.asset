@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/TeamvsTeamGreybox.unity
+    path: Assets/Scenes/NonMirror/TeamvsTeamNonMirror.unity
     guid: c2dc7b346f3fa274aadcc0c02cfedd96
   - enabled: 1
     path: Assets/Scenes/Mirror/Offline.unity

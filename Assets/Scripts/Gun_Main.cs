@@ -5,22 +5,58 @@ using UnityEngine.UI;
 
 public class Gun_Main : MonoBehaviour
 {
+    /// <summary>
+    /// The amount of damage each shot will do
+    /// </summary>
     public float damage = 10f;
+    /// <summary>
+    /// The range that the gun can shoot to
+    /// </summary>
     public float range = 100f;
+    /// <summary>
+    /// the amount of ammo in the clip
+    /// </summary>
     [Header("Gun clip and ammo")]
     public int clip;
+    /// <summary>
+    /// the max amount of ammo in the clip at any one time
+    /// </summary>
     public int clipMax = 30;
+    /// <summary>
+    /// the ammount of ammo in the revserve
+    /// </summary>
     public int ammo;
+    /// <summary>
+    ///  the max amount of ammo in the reserve at any one point in time
+    /// </summary>
     public int ammoMax = 100;
 
+    /// <summary>
+    /// the text element for displaying the clip amount
+    /// </summary>
     [Header("UI details")]
     public Text clipText;
+    /// <summary>
+    /// the text element for displaying the reserver amount
+    /// </summary>
     public Text ammoText;
+    /// <summary>
+    /// the name of this gun
+    /// </summary>
     public string gunName;
+    /// <summary>
+    /// the text element to display the gun name
+    /// </summary>
     public Text currentGun;
 
+    /// <summary>
+    /// refernce to the guns animator for conveying animations
+    /// </summary>
     public Animator animator;
 
+    /// <summary>
+    /// the camera used for the player shooting
+    /// </summary>
     public Camera fpsCamera;
     Vector3 _currentShootPos;
     void Start()
@@ -84,8 +120,10 @@ public class Gun_Main : MonoBehaviour
         }
     }
 
-
-    void Shoot()
+    /// <summary>
+    /// Used to shoot the gun using rayscasts
+    /// </summary>
+    public void Shoot()
     {
         clip--;
         UIUpdate();
@@ -117,6 +155,10 @@ public class Gun_Main : MonoBehaviour
         }
         else { Debug.Log("BigMiss"); }
     }
+
+    /// <summary>
+    /// Updates the UI elements 
+    /// </summary>
     public void UIUpdate()
     {
         clipText.text = ("Clip: ") + clip;

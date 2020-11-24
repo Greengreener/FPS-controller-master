@@ -260,7 +260,7 @@ PrefabInstance:
     - target: {fileID: 6877189041185812574, guid: 636c565c699113545854ab31e83404fa,
         type: 3}
       propertyPath: m_Name
-      value: PlayerForFlag
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8783690407163095839, guid: 636c565c699113545854ab31e83404fa,
         type: 3}
