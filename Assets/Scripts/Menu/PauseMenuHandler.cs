@@ -8,12 +8,18 @@ public class PauseMenuHandler : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject hud;
     [SerializeField] Gun_Main gunScript;
+    [SerializeField] List<GameObject> crossHair;
+    [SerializeField] int crossHairId;
 
-
+    [SerializeField] List<GameObject> subMenus;
     private void Start()
     {
         pauseMenu.SetActive(false);
         gunScript = FindObjectOfType<Gun_Main>();
+        crossHair = new List<GameObject>(GameObject.FindGameObjectsWithTag("CrossHair"));
+        for (int i = 0; i > crossHair.Count; i++) { crossHair[i].SetActive(false); }
+        crossHair[0].SetActive(true);
+        crossHairId = 0;
     }
     void Update()
     {
@@ -40,11 +46,25 @@ public class PauseMenuHandler : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             //Hide the cursor
             Cursor.visible = false;
-
+            for (int i = 0; i < subMenus.Count; i++)
+            {
+                subMenus[i].SetActive(false);
+                print("turned off " + i);
+            }
         }
     }
     public void SetSubMenuOnOff(GameObject _subMenu)
     {
         _subMenu.SetActive(!_subMenu.activeSelf);
+    }
+    public void ChangeCrossHair()
+    {
+        crossHair[crossHairId].SetActive(false);
+        crossHairId++;
+        if (crossHairId >= crossHair.Count)
+        {
+            crossHairId = 0;
+        }
+        crossHair[crossHairId].SetActive(true);
     }
 }

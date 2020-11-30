@@ -1,5 +1,6 @@
 var class_gun___main =
 [
+    [ "Shoot", "class_gun___main.html#aebe787cfc47d1b6a49fc0360050b56e9", null ],
     [ "UIUpdate", "class_gun___main.html#aef5834f43e41bb640226c0d94aced228", null ],
     [ "ammo", "class_gun___main.html#a77ba57505bbf5d7226cc805b9b58c9db", null ],
     [ "ammoMax", "class_gun___main.html#a1ed6c86f6ab3d83a85ff3c4fad074984", null ],

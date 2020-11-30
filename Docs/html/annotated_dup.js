@@ -13,5 +13,6 @@ var annotated_dup =
     [ "NetworkPlayer", "class_network_player.html", "class_network_player" ],
     [ "NetworkPlayerIntitaializer", "class_network_player_intitaializer.html", "class_network_player_intitaializer" ],
     [ "ObjectInfo", "class_object_info.html", "class_object_info" ],
+    [ "PauseMenuHandler", "class_pause_menu_handler.html", "class_pause_menu_handler" ],
     [ "PlayerInfo", "class_player_info.html", "class_player_info" ]
 ];

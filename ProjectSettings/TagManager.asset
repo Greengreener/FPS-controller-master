@@ -11,6 +11,7 @@ TagManager:
   - Flag
   - RedFlagBase
   - BlueFlagBase
+  - CrossHair
   layers:
   - Default
   - TransparentFX

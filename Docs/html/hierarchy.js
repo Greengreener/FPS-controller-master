@@ -11,6 +11,7 @@ var hierarchy =
       [ "LobbyPlayerDisplay", "class_lobby_player_display.html", null ],
       [ "Movement", "class_movement.html", null ],
       [ "ObjectInfo", "class_object_info.html", null ],
+      [ "PauseMenuHandler", "class_pause_menu_handler.html", null ],
       [ "PlayerInfo", "class_player_info.html", null ]
     ] ],
     [ "NetworkBehaviour", null, [
