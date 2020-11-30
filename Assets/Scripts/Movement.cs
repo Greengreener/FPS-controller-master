@@ -44,8 +44,8 @@ public class Movement : MonoBehaviour
         }
         moveDirection = new Vector3(horizontal, 0, vertical);
         rb.AddRelativeForce(moveDirection * speed * Time.deltaTime, ForceMode.Force);
-        animator.SetFloat("Speed", Mathf.Abs(moveDirection.x));
-        animator.SetFloat("ForwardSpeed", Mathf.Abs(moveDirection.z));
+        animator.SetFloat("Speed", moveDirection.magnitude);
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddRelativeForce(Vector3.up * jumpSpeed, ForceMode.Impulse);

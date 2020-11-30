@@ -20,6 +20,10 @@ public class PauseMenuHandler : MonoBehaviour
         for (int i = 0; i > crossHair.Count; i++) { crossHair[i].SetActive(false); }
         crossHair[0].SetActive(true);
         crossHairId = 0;
+        for (int i = 0; i < subMenus.Count; i++)
+        {
+            subMenus[i].SetActive(false);
+        }
     }
     void Update()
     {

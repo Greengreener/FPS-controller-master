@@ -58,7 +58,8 @@ public class Gun_Main : MonoBehaviour
     /// the camera used for the player shooting
     /// </summary>
     public Camera fpsCamera;
-    Vector3 _currentShootPos;
+
+    bool isFiring;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -67,57 +68,28 @@ public class Gun_Main : MonoBehaviour
         fpsCamera = Camera.main;
         gunName = "AK-47";
         currentGun.text = gunName;
+        animator = GetComponent<Animator>();
         UIUpdate();
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R) && ammo > 0)
         {
-            int amountIntoClip;
 
-            if (clip != clipMax)
-            {
-                amountIntoClip = clipMax - clip;
-                if (ammo > 0)
-                {
-                    if (amountIntoClip <= ammo)
-                    {
-                        Debug.Log("Amount into clip = " + amountIntoClip);
-                        clip = clip + amountIntoClip;
-                        ammo = ammo - amountIntoClip;
-                    }
-                    else
-                    {
-                        clip += ammo;
-                        ammo = 0;
-                    }
-
-                }
-                if (ammo <= 0)
-                {
-                    ammo = 0;
-                }
-            }
-            UIUpdate();
         }
     }
     void FixedUpdate()
     {
-        if (Input.GetButton("Fire1") && clip > 0)
+        if (Input.GetButtonDown("Fire1") && clip > 0)
         {
-            _currentShootPos = fpsCamera.transform.position;
-            animator.SetBool("Shooting", true);
-            Shoot();
+            animator.SetTrigger("Fire");
         }
+
         if (Input.GetButton("Fire1") && clip == 0)
         {
-            animator.SetBool("Shooting", false);
             Debug.Log("*click click click*");
         }
-        else
-        {
-            animator.SetBool("Shooting", false);
-        }
+        //while (Input.GetButton)
     }
 
     /// <summary>
@@ -155,7 +127,47 @@ public class Gun_Main : MonoBehaviour
         }
         else { Debug.Log("BigMiss"); }
     }
+    void Reload()
+    {
+        int amountIntoClip;
 
+        if (clip != clipMax)
+        {
+            amountIntoClip = clipMax - clip;
+            if (ammo > 0)
+            {
+                if (amountIntoClip <= ammo)
+                {
+                    Debug.Log("Amount into clip = " + amountIntoClip);
+                    clip = clip + amountIntoClip;
+                    ammo = ammo - amountIntoClip;
+                }
+                else
+                {
+                    clip += ammo;
+                    ammo = 0;
+                }
+
+            }
+            if (ammo <= 0)
+            {
+                ammo = 0;
+            }
+        }
+        UIUpdate();
+    }
+    void CheckShootingAvability()
+    {
+        if (Input.GetButton("Fire1") && clip > 0)
+        {
+            animator.SetTrigger("Fire");
+        }
+
+        if (Input.GetButton("Fire1") && clip == 0)
+        {
+            Debug.Log("*click click click*");
+        }
+    }
     /// <summary>
     /// Updates the UI elements 
     /// </summary>
