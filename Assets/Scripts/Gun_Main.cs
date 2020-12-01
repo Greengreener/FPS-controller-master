@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Gun_Main : MonoBehaviour
 {
+    public PlayerInfo player;
     /// <summary>
     /// The amount of damage each shot will do
     /// </summary>
@@ -59,32 +60,41 @@ public class Gun_Main : MonoBehaviour
     /// </summary>
     public Camera fpsCamera;
 
+    public bool animated;
     bool isFiring;
     void Start()
     {
+        player = GetComponentInParent<PlayerInfo>();
         animator = GetComponent<Animator>();
         clip = clipMax;
         ammo = ammoMax;
         fpsCamera = Camera.main;
         gunName = "AK-47";
         currentGun.text = gunName;
-        animator = GetComponent<Animator>();
+        if (animated == true) animator = GetComponent<Animator>();
         UIUpdate();
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R) && ammo > 0)
         {
-
+            Reload();
         }
     }
     void FixedUpdate()
     {
         if (Input.GetButtonDown("Fire1") && clip > 0)
         {
-            animator.SetTrigger("Fire");
+            switch (animated)
+            {
+                case false:
+                    Shoot();
+                    break;
+                case true:
+                    animator.SetTrigger("Fire");
+                    break;
+            }
         }
-
         if (Input.GetButton("Fire1") && clip == 0)
         {
             Debug.Log("*click click click*");
@@ -113,7 +123,8 @@ public class Gun_Main : MonoBehaviour
             Debug.Log(hit.ToString());
             if (target != null)
             {
-                target.TakeDamage(damage);
+                //target.TakeDamage(damage);
+                player.GetComponent<PlayerCommands>().Damage(damage, target.GetComponent<PlayerCommands>());
             }
             if (target.health <= 0)
             {

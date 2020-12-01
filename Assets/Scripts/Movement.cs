@@ -16,10 +16,11 @@ public class Movement : MonoBehaviour
     public Animator animator;
     public int movementAnim;
 
+    public bool animated;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponentInChildren<Animator>();
+        if (animated) animator = GetComponentInChildren<Animator>();
     }
     private void Update()
     {
@@ -44,7 +45,7 @@ public class Movement : MonoBehaviour
         }
         moveDirection = new Vector3(horizontal, 0, vertical);
         rb.AddRelativeForce(moveDirection * speed * Time.deltaTime, ForceMode.Force);
-        animator.SetFloat("Speed", moveDirection.magnitude);
+        if (animated) animator.SetFloat("Speed", moveDirection.magnitude);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
