@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    public float health;
-
-    public void TakeDamage(float damage)
+    public float health = 100;
+    void Start()
     {
-        health -= damage;
+        health = 100;
+    }
+    public void TakeDamage(float _damage)
+    {
+        health -= _damage;
+        print("Damaged by " + _damage);
         if (health <= 0f)
         {
             gameObject.SetActive(false);
             Debug.Log("Killed");
-
-
         }
     }
 }

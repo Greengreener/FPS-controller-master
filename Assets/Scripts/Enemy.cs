@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float health;
     public GameObject[] bodyParts = new GameObject[7];
@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
             }
             Debug.Log("Killed");
             //Destroy(gameObject);
-            if(box != null)
+            if (box != null)
             {
                 Rigidbody rbBox = box.GetComponent<Rigidbody>();
                 rbBox.useGravity = true;

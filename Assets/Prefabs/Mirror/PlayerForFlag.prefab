@@ -360,10 +360,11 @@ GameObject:
   - component: {fileID: 5048358221262346932}
   - component: {fileID: 6877189041185812563}
   - component: {fileID: 6877189041185812567}
+  - component: {fileID: 8915454421917471382}
+  - component: {fileID: 8418738368249420002}
   - component: {fileID: 6877189041185812572}
   - component: {fileID: 6877189041185812573}
-  - component: {fileID: 1154449153483058743}
-  - component: {fileID: 7433226479455071474}
+  - component: {fileID: 5330079580132120944}
   m_Layer: 0
   m_Name: PlayerForFlag
   m_TagString: Untagged
@@ -467,6 +468,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   movementAnim: 0
+  animated: 0
 --- !u!114 &6877189041185812567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +485,33 @@ MonoBehaviour:
   sensetivity: 100
   minY: -60
   maxY: 60
+--- !u!114 &8915454421917471382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877189041185812574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ef2071ee923e34cadca8efb24acd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &8418738368249420002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877189041185812574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ca922a02c620a4e8b3e195576b295d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!136 &6877189041185812572
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -513,7 +542,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1154449153483058743
+--- !u!114 &5330079580132120944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -529,23 +558,6 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &7433226479455071474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6877189041185812574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8553935f909d39944a89742bee0802fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 1
-  syncInterval: 0.1
-  _userName: Blayer
-  lobbyPlayer: {fileID: 0}
-  gameplayPlayer: {fileID: 0}
 --- !u!1 &7551673292884495463
 GameObject:
   m_ObjectHideFlags: 0

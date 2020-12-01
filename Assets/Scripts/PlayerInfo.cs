@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Health), typeof(Movement))]
 public class PlayerInfo : MonoBehaviour
 {
     /// <summary>

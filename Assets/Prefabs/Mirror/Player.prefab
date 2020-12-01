@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: flagIcon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5330079580132120944, guid: 636c565c699113545854ab31e83404fa,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6877189039408622856, guid: 636c565c699113545854ab31e83404fa,
         type: 3}
       propertyPath: m_Enabled

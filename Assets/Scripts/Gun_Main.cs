@@ -68,7 +68,7 @@ public class Gun_Main : MonoBehaviour
         animator = GetComponent<Animator>();
         clip = clipMax;
         ammo = ammoMax;
-        fpsCamera = Camera.main;
+        fpsCamera = GetComponentInParent<Camera>();
         gunName = "AK-47";
         currentGun.text = gunName;
         if (animated == true) animator = GetComponent<Animator>();
@@ -78,7 +78,7 @@ public class Gun_Main : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R) && ammo > 0)
         {
-            Reload();
+            if (!animated) Reload();
         }
     }
     void FixedUpdate()
@@ -110,10 +110,10 @@ public class Gun_Main : MonoBehaviour
         clip--;
         UIUpdate();
         RaycastHit hit;
-        Enemy target;
+        Health target;
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            target = hit.transform.GetComponentInParent<Enemy>();
+            target = hit.transform.GetComponentInParent<Health>();
 
             if (target == null)
             {
@@ -124,7 +124,7 @@ public class Gun_Main : MonoBehaviour
             if (target != null)
             {
                 //target.TakeDamage(damage);
-                player.GetComponent<PlayerCommands>().Damage(damage, target.GetComponent<PlayerCommands>());
+                player.GetComponent<PlayerCommands>().Damage(damage, target.gameObject.GetComponent<PlayerCommands>());
             }
             if (target.health <= 0)
             {
