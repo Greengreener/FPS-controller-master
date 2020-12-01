@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73cd1dfc3c527224ba734bb25a0b87c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   damage: 10
   range: 100
   clip: 0
@@ -163,6 +164,8 @@ MonoBehaviour:
   currentGun: {fileID: 0}
   animator: {fileID: 0}
   fpsCamera: {fileID: 0}
+  animated: 0
+  networked: 0
 --- !u!95 &25260641
 Animator:
   serializedVersion: 3
@@ -3406,6 +3409,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2234285206343206699, guid: 31d31c04db96d2545b7d02f1b2adcd4b,
+        type: 3}
+      propertyPath: animated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2463118801215192375, guid: 31d31c04db96d2545b7d02f1b2adcd4b,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3524,7 +3532,7 @@ PrefabInstance:
     - target: {fileID: 6877189041185812574, guid: 31d31c04db96d2545b7d02f1b2adcd4b,
         type: 3}
       propertyPath: m_Name
-      value: PlayerForFlagNonMirror (1)
+      value: PlayerForFlagNonMirror
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d31c04db96d2545b7d02f1b2adcd4b, type: 3}

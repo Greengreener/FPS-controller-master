@@ -61,7 +61,9 @@ public class Gun_Main : MonoBehaviour
     public Camera fpsCamera;
 
     public bool animated;
+    public bool networked;
     bool isFiring;
+
     void Start()
     {
         player = GetComponentInParent<PlayerInfo>();
@@ -78,11 +80,16 @@ public class Gun_Main : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R) && ammo > 0)
         {
-            if (!animated) Reload();
+            switch (animated)
+            {
+                case false:
+                    Reload();
+                    break;
+                case true:
+                    animator.SetBool("Reloading", true);
+                    break;
+            }
         }
-    }
-    void FixedUpdate()
-    {
         if (Input.GetButtonDown("Fire1") && clip > 0)
         {
             switch (animated)
@@ -99,7 +106,6 @@ public class Gun_Main : MonoBehaviour
         {
             Debug.Log("*click click click*");
         }
-        //while (Input.GetButton)
     }
 
     /// <summary>
@@ -107,36 +113,66 @@ public class Gun_Main : MonoBehaviour
     /// </summary>
     public void Shoot()
     {
-        clip--;
-        UIUpdate();
-        RaycastHit hit;
-        Health target;
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
+        switch (networked)
         {
-            target = hit.transform.GetComponentInParent<Health>();
+            case true:
+                clip--;
+                UIUpdate();
+                RaycastHit networkHit;
+                Health networkTarget;
+                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out networkHit, range))
+                {
+                    networkTarget = networkHit.transform.GetComponent<Health>();
 
-            if (target == null)
-            {
-                return;
-            }
+                    if (networkTarget == null)
+                    {
+                        return;
+                    }
+                    Debug.Log(networkHit.ToString());
+                    if (networkTarget != null)
+                    {
+                        //target.TakeDamage(damage);
+                        player.GetComponent<PlayerCommands>().Damage(damage, networkTarget.gameObject.GetComponent<PlayerCommands>());
+                    }
+                    else
+                    {
+                        Debug.Log("Miss");
+                    }
+                }
+                else { Debug.Log("BigMiss"); }
+                break;
+            case false:
+                clip--;
+                UIUpdate();
+                RaycastHit hit;
+                Enemy target;
+                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
+                {
+                    target = hit.transform.GetComponentInParent<Enemy>();
 
-            Debug.Log(hit.ToString());
-            if (target != null)
-            {
-                //target.TakeDamage(damage);
-                player.GetComponent<PlayerCommands>().Damage(damage, target.gameObject.GetComponent<PlayerCommands>());
-            }
-            if (target.health <= 0)
-            {
-                Rigidbody rb = hit.rigidbody.GetComponent<Rigidbody>();
-                rb.AddForceAtPosition((hit.point - fpsCamera.transform.position) * damage, hit.transform.position);
-            }
-            else
-            {
-                Debug.Log("Miss");
-            }
+                    if (target == null)
+                    {
+                        return;
+                    }
+
+                    Debug.Log(hit.ToString());
+                    if (target != null)
+                    {
+                        target.TakeDamage(damage);
+                    }
+                    if (target.health <= 0)
+                    {
+                        Rigidbody rb = hit.rigidbody.GetComponent<Rigidbody>();
+                        rb.AddForceAtPosition((hit.point - fpsCamera.transform.position) * damage, hit.transform.position);
+                    }
+                    else
+                    {
+                        Debug.Log("Miss");
+                    }
+                }
+                else { Debug.Log("BigMiss"); }
+                break;
         }
-        else { Debug.Log("BigMiss"); }
     }
     void Reload()
     {
@@ -166,6 +202,7 @@ public class Gun_Main : MonoBehaviour
             }
         }
         UIUpdate();
+        animator.SetBool("Reloading", false);
     }
     void CheckShootingAvability()
     {

@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: sceneId
       value: 1731624950
       objectReference: {fileID: 0}
+    - target: {fileID: 1252481308653992048, guid: 636c565c699113545854ab31e83404fa,
+        type: 3}
+      propertyPath: networked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1967290878314743281, guid: 636c565c699113545854ab31e83404fa,
         type: 3}
       propertyPath: m_AnchorMax.x
