@@ -78,7 +78,7 @@ public class Gun_Main : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && ammo > 0)
+        if (Input.GetKeyDown(KeyCode.R) && ammo > 0 && clip <= clipMax)
         {
             switch (animated)
             {
